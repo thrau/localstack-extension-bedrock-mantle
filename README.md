@@ -10,13 +10,13 @@ LocalStack.
 To install the extension, add to your environment
 
 ```
-EXTENSION_AUTO_INSTALL=git+https://github.com/thrau/localstack-extension-bedrock-mantle/#egg=localstack-extension-bedrock-mantle
+EXTENSION_AUTO_INSTALL=localstack-extension-bedrock-mantle
 ```
 
 or run
 
 ```sh
-localstack extensions install "git+https://github.com/thrau/localstack-extension-bedrock-mantle/#egg=localstack-extension-bedrock-mantle"
+localstack extensions install "localstack-extension-bedrock-mantle"
 ```
 
 ## Usage
