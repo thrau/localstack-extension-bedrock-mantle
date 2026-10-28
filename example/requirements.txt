@@ -1,0 +1,2 @@
+openai[bedrock]
+aws-lambda-powertools

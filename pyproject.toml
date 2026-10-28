@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "localstack-extension-bedrock-mantle"
+version = "0.2.0"
+description = "Emulates Bedrock Mantle with Ollama's OpenAI-compatible API"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.12"
+authors = [{ name = "Thomas Rausch", email = "thomas@thrau.at" }]
+dependencies = [
+    "localstack-extensions-utils",
+]
+
+[project.urls]
+Homepage = "https://github.com/localstack/localstack-extensions/tree/main/bedrock-mantle"
+
+[project.optional-dependencies]
+dev = ["localstack-core>=4.0", "boto3", "ruff", "build", "hatch"]
+
+[project.entry-points."localstack.extensions"]
+bedrock-mantle = "localstack_bedrock_mantle.extension:BedrockMantleExtension"
+
+[tool.hatch.build.targets.sdist]
+include = ["/localstack_bedrock_mantle", "/tests", "/Makefile", "/README.md", "/pyproject.toml"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["localstack_bedrock_mantle"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv*", "venv*"]
+
+[tool.ruff.lint]
+select = ["B", "C90", "E", "F", "I", "W", "T10"]
+ignore = ["E501", "F403"]

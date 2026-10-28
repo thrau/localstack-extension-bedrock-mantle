@@ -20,6 +20,21 @@ On load, the extension appends the following Docker flag to
 -e AWS_BEDROCK_BASE_URL=bedrock-mantle.us-east-1.localhost.localstack.cloud
 ```
 
+## Usage
+
+To connect to AWS bedrock mantle, your OpenAI code might look as simple as.
+The extension automatically configures your containers to connect to localstack.
+
+```python
+client = OpenAI(
+    provider=bedrock(
+        endpoint="mantle",
+        api_key=None,  # Force IAM/SigV4 authentication
+    )
+)
+```
+
+
 ## Local development
 
 Install development dependencies with `make install`. Run `make lint` to check lint
