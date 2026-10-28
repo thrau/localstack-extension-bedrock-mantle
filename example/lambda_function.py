@@ -4,7 +4,7 @@ import json
 import os
 
 from aws_lambda_powertools import Logger
-from openai import OpenAI, _provider
+from openai import OpenAI
 from openai.providers import bedrock
 
 logger = Logger("lambda-function-example")
@@ -31,10 +31,6 @@ def handler(event, context):
             endpoint="mantle",
             api_key=None,  # Force IAM/SigV4 authentication
         )
-    )
-
-    logger.info(
-        "provider definitions are now", extra={"providers": _provider._provider_definitions}
     )
 
     try:
